@@ -9,6 +9,7 @@ const Navbar = () => {
       <Link href='/us-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300'>US News</Link>
       <Link href='/sports-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300'>Sports News</Link>
       <Link href='/movie-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300'>Movie News</Link>
+      <Link href='/tech-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300'>Tech News</Link>
     </nav>
   )
 }
