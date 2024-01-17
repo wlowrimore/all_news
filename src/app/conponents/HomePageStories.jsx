@@ -46,10 +46,11 @@ const HomePageStories = () => {
                 alt={article.multimedia[1].caption}
                 width={article.multimedia[1].width}
                 height={article.multimedia[1].height}
-                className='rounded-lg'
+                className='rounded-lg transition-all hover:scale-105 duration-500'
               />
             )}
-            <p className='text-sm italic'>Published on:&nbsp;<span>{new Date(article.published_date).toLocaleDateString()}</span></p>
+            <p className='text-xs italic'><span>{article.byline.replace('By', '').trim()}&nbsp;{new Date(article.published_date).toLocaleDateString()}</span></p>
+
             <div className='mt-2'>
               <h2 className='text-lg font-bold'>{article.title}</h2>
               <p className='text-gray-600'>{article.abstract}</p>
