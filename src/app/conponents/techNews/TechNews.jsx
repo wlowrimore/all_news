@@ -23,8 +23,8 @@ const TechNews = () => {
 
   return (
     <div className='max-w-7xl mx-auto'>
-      <h1 className={`${noticia.className} 2xl:text-5xl px-4 pb-2`}>Movie News</h1>
-      <h2 className={`${noticia.className} 2xl:text-3xl px-4`}>See what&apos;s happening on the silver screen</h2>
+      <h1 className={`${noticia.className} 2xl:text-5xl px-4 pb-2`}>Tech News</h1>
+      <h2 className={`${noticia.className} 2xl:text-3xl px-4`}>Keep up with the latest in technology</h2>
       {techArticles[0]?.multimedia && techArticles[0].multimedia.length > 0 && (
         <Link href={techArticles[0].url} target='_blank' rel='noopenernoreferrer' className='transition-all duration-300 hover:opacity-90'>
           <div className='relative bg-gray-900 rounded-lg m-4 h-[33rem]'>
