@@ -1,4 +1,4 @@
-import MovieNews from "../conponents/movieNews/MovieNews"
+import MovieNews from "../components/movieNews/MovieNews"
 
 const page = () => {
   return (

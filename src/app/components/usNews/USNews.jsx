@@ -22,22 +22,32 @@ const USNews = () => {
     fetchData()
   }, [])
 
+  const firstArticleWithMultimedia = usArticles.find((article) => article.multimedia && article.multimedia.length > 0)
+
   return (
     <div className='max-w-7xl mx-auto'>
-      <div className='relative bg-gray-300 mx-4 mb-2 rounded shadow-md shadow-gray-400'>
-        <Image
-          src={USFlag}
-          alt='USFlag'
-          className='w-full h-[15rem] object-cover opacity-60 rounded-sm'
-          priority
-          placeholder='blur'
-          blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='
-        />
-        <h1 className={`${noticia.className} absolute bottom-24 left-8 text-3xl 2xl:text-7xl`}>U.S. News</h1>
-        <h2 className={`${noticia.className} absolute bottom-16 left-8 text-2xl 2xl:text-3xl`}>Your country. Your news. Your right to know.</h2>
-      </div>
+      <h1 className={`${noticia.className} 2xl:text-5xl px-4 pb-2`}>U.S. News</h1>
+      <h2 className={`${noticia.className} 2xl:text-3xl px-4`}>See what&apos;s happening across the U.S.</h2>
+      {firstArticleWithMultimedia && (
+        <Link href={firstArticleWithMultimedia.url} target='_blank' rel='noopenernoreferrer' className='transition-all duration-300 hover:opacity-90'>
+          <div className='relative bg-gray-900 rounded-lg m-4 h-[33rem]'>
+            <Image
+              src={firstArticleWithMultimedia.multimedia[0].url}
+              alt={firstArticleWithMultimedia.multimedia[0].caption}
+              width={firstArticleWithMultimedia.multimedia[0].width}
+              height={firstArticleWithMultimedia.multimedia[0].height}
+              className='rounded-lg shadow-sm shadow-gray-500 w-full h-full object-cover opacity-60'
+              priority
+            />
+            <div className='absolute bottom-3 left-3 flex flex-col w-1/2 text-white bg-gray-800/90 p-4 rounded-lg'>
+              <h3 className='font-bold text-2xl'>{firstArticleWithMultimedia.title}</h3>
+              <p>{firstArticleWithMultimedia.abstract}</p>
+            </div>
+          </div>
+        </Link>
+      )}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
-        {usArticles?.map((usArticle, index) => (
+        {usArticles.filter((usArticle) => usArticle.multimedia && usArticle.multimedia.length > 0).map((usArticle, index) => (
           <div key={index} className='bg-white rounded-lg shadow-md p-4'>
             {usArticle.multimedia && usArticle.multimedia.length > 0 && (
               <Image

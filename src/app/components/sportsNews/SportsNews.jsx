@@ -22,30 +22,35 @@ const SportsNews = () => {
     fetchData()
   }, [])
 
+  // Find the first article with a multimedia array that isn't empty
+  const firstArticleWithMultimedia = sportsArticles.find((article) => article.multimedia && article.multimedia.length > 0)
+
   return (
     <div className='max-w-7xl mx-auto'>
       <h1 className={`${noticia.className} 2xl:text-5xl px-4 pb-2`}>Sports News</h1>
-      <h2 className={`${noticia.className} 2xl:text-3xl px-4`}>Get the latest in every sport</h2>
-      {sportsArticles[0]?.multimedia && sportsArticles[0].multimedia.length > 0 && (
-        <Link href={sportsArticles[0].url} target='_blank' rel='noopenernoreferrer' className='transition-all duration-300 hover:opacity-90'>
+      <h2 className={`${noticia.className} 2xl:text-3xl px-4`}>Get the latest news on sports</h2>
+      {/* Display the first article with a multimedia array that isn't empty */}
+      {firstArticleWithMultimedia && (
+        <Link href={firstArticleWithMultimedia.url} target='_blank' rel='noopenernoreferrer' className='transition-all duration-300 hover:opacity-90'>
           <div className='relative bg-gray-900 rounded-lg m-4 h-[33rem]'>
             <Image
-              src={sportsArticles[0].multimedia[0].url}
-              alt={sportsArticles[0].multimedia[0].caption}
-              width={sportsArticles[0].multimedia[0].width}
-              height={sportsArticles[0].multimedia[0].height}
+              src={firstArticleWithMultimedia.multimedia[0].url}
+              alt={firstArticleWithMultimedia.multimedia[0].caption}
+              width={firstArticleWithMultimedia.multimedia[0].width}
+              height={firstArticleWithMultimedia.multimedia[0].height}
               className='rounded-lg shadow-sm shadow-gray-500 w-full h-full object-cover opacity-60'
               priority
             />
             <div className='absolute bottom-3 left-3 flex flex-col w-1/2 text-white bg-gray-800/90 p-4 rounded-lg'>
-              <h3 className='font-bold text-2xl'>{sportsArticles[0].title}</h3>
-              <p>{sportsArticles[0].abstract}</p>
+              <h3 className='font-bold text-2xl'>{firstArticleWithMultimedia.title}</h3>
+              <p>{firstArticleWithMultimedia.abstract}</p>
             </div>
           </div>
         </Link>
       )}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
-        {sportsArticles?.map((sportsArticle, index) => (
+        {/* Filter the articles array to only include articles with a multimedia array that isn't empty */}
+        {sportsArticles.filter((sportsArticle) => sportsArticle.multimedia && sportsArticle.multimedia.length > 0).map((sportsArticle, index) => (
           <div key={index} className='bg-white rounded-lg shadow-md p-4'>
             {sportsArticle.multimedia && sportsArticle.multimedia.length > 0 && (
               <Image

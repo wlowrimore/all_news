@@ -22,22 +22,33 @@ const WorldNews = () => {
     fetchData()
   }, [])
 
+  // Find the first article with a multimedia array that isn't empty
+  const firstArticleWithMultimedia = worldArticles.find((article) => article.multimedia && article.multimedia.length > 0)
+
   return (
-    <>
-      <div className='relative w-full'>
-        <Image
-          src={Earth}
-          alt='Earth'
-          className='w-52 opacity-80'
-          priority
-          placeholder='blur'
-          blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='
-        />
-        <h1 className={`${noticia.className} absolute bottom-24 left-16 text-3xl 2xl:text-7xl`}>World News</h1>
-        <h2 className={`${noticia.className} absolute bottom-16 left-16 text-2xl 2xl:text-3xl`}>See what&apos;s happening around the globe</h2>
-      </div>
+    <div className='max-w-7xl mx-auto'>
+      <h1 className={`${noticia.className} 2xl:text-5xl px-4 pb-2`}>World News</h1>
+      <h2 className={`${noticia.className} 2xl:text-3xl px-4`}>See what&apos;s going on around the globe</h2>
+      {firstArticleWithMultimedia && (
+        <Link href={firstArticleWithMultimedia.url} target='_blank' rel='noopenernoreferrer' className='transition-all duration-300 hover:opacity-90'>
+          <div className='relative bg-gray-900 rounded-lg m-4 h-[33rem]'>
+            <Image
+              src={firstArticleWithMultimedia.multimedia[0].url}
+              alt={firstArticleWithMultimedia.multimedia[0].caption}
+              width={firstArticleWithMultimedia.multimedia[0].width}
+              height={firstArticleWithMultimedia.multimedia[0].height}
+              className='rounded-lg shadow-sm shadow-gray-500 w-full h-full object-cover opacity-60'
+              priority
+            />
+            <div className='absolute bottom-3 left-3 flex flex-col w-1/2 text-white bg-gray-800/90 p-4 rounded-lg'>
+              <h3 className='font-bold text-2xl'>{firstArticleWithMultimedia.title}</h3>
+              <p>{firstArticleWithMultimedia.abstract}</p>
+            </div>
+          </div>
+        </Link>
+      )}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
-        {worldArticles?.map((worldArticle, index) => (
+        {worldArticles.filter((worldArticle) => worldArticle.multimedia && worldArticle.multimedia.length > 0).map((worldArticle, index) => (
           <div key={index} className='bg-white rounded-lg shadow-md p-4'>
             {worldArticle.multimedia && worldArticle.multimedia.length > 0 && (
               <Image
@@ -45,7 +56,7 @@ const WorldNews = () => {
                 alt={worldArticle.multimedia[0].caption}
                 width={worldArticle.multimedia[0].width}
                 height={worldArticle.multimedia[0].height}
-                className='rounded-lg shadow-sm shadow-gray-500 w-full transition-all hover:scale-105 duration-500'
+                className='rounded-lg shadow-sm shadow-gray-500 w-full transition-all duration-500 hover:scale-105'
                 priority
               />
             )}
@@ -58,7 +69,7 @@ const WorldNews = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   )
 }
 

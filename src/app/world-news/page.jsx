@@ -1,4 +1,4 @@
-import WorldNews from '../conponents/worldNews/WorldNews'
+import WorldNews from '../components/worldNews/WorldNews'
 
 const page = () => {
   return (

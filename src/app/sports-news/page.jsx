@@ -1,4 +1,4 @@
-import SportsNews from "../conponents/sportsNews/SportsNews"
+import SportsNews from "../components/sportsNews/SportsNews"
 
 const page = () => {
   return (

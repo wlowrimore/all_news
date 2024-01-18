@@ -1,4 +1,4 @@
-import USNews from '../conponents/usNews/USNews'
+import USNews from '../components/usNews/USNews'
 
 const page = () => {
   return (

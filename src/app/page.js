@@ -1,4 +1,4 @@
-import HomePageStories from "./conponents/HomePageStories";
+import HomePageStories from "./components/HomePageStories";
 import { Noticia_Text } from "next/font/google";
 
 const noticia = Noticia_Text({ subsets: ['latin'], weight: ['400', '700'] })

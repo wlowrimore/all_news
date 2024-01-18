@@ -1,5 +1,4 @@
-import ScienceNews from "../conponents/scienceNews/ScienceNews"
-import TechNews from "../conponents/techNews/TechNews"
+import ScienceNews from "../components/scienceNews/ScienceNews"
 
 const page = () => {
   return (
