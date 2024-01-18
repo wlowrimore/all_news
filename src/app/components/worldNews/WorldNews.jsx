@@ -23,7 +23,7 @@ const WorldNews = () => {
   }, [])
 
   // Find the first article with a multimedia array that isn't empty
-  const firstArticleWithMultimedia = worldArticles.find((article) => article.multimedia && article.multimedia.length > 0)
+  const firstArticleWithMultimedia = Array.isArray(worldArticles) && worldArticles.find((article) => article.multimedia && article.multimedia.length > 0)
 
   return (
     <div className='max-w-7xl mx-auto'>

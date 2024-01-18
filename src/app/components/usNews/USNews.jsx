@@ -22,7 +22,7 @@ const USNews = () => {
     fetchData()
   }, [])
 
-  const firstArticleWithMultimedia = usArticles.find((article) => article.multimedia && article.multimedia.length > 0)
+  const firstArticleWithMultimedia = Array.isArray(usArticles) && usArticles.find((article) => article.multimedia && article.multimedia.length > 0)
 
   return (
     <div className='max-w-7xl mx-auto'>

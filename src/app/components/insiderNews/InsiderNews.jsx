@@ -22,7 +22,7 @@ const InsiderNews = () => {
   }, [])
 
   // Find the first article with a multimedia array that isn't empty 
-  const firstArticleWithMultimedia = insiderArticles.find((article) => article.multimedia && article.multimedia.length > 0)
+  const firstArticleWithMultimedia = Array.isArray(insiderArticles) && insiderArticles.find((article) => article.multimedia && article.multimedia.length > 0)
 
   return (
     <div className='max-w-7xl mx-auto'>

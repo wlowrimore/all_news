@@ -23,7 +23,7 @@ const SportsNews = () => {
   }, [])
 
   // Find the first article with a multimedia array that isn't empty
-  const firstArticleWithMultimedia = sportsArticles.find((article) => article.multimedia && article.multimedia.length > 0)
+  const firstArticleWithMultimedia = Array.isArray(sportsArticles) && sportsArticles.find((article) => article.multimedia && article.multimedia.length > 0)
 
   return (
     <div className='max-w-7xl mx-auto'>
@@ -50,7 +50,7 @@ const SportsNews = () => {
       )}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
         {/* Filter the articles array to only include articles with a multimedia array that isn't empty */}
-        {sportsArticles.filter((sportsArticle) => sportsArticle.multimedia && sportsArticle.multimedia.length > 0).map((sportsArticle, index) => (
+        {sportsArticles && sportsArticles.filter((sportsArticle) => sportsArticle.multimedia && sportsArticle.multimedia.length > 0).map((sportsArticle, index) => (
           <div key={index} className='bg-white rounded-lg shadow-md p-4'>
             {sportsArticle.multimedia && sportsArticle.multimedia.length > 0 && (
               <Image
