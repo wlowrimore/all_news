@@ -48,7 +48,7 @@ const WorldNews = () => {
         </Link>
       )}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
-        {worldArticles.filter((worldArticle) => worldArticle.multimedia && worldArticle.multimedia.length > 0).map((worldArticle, index) => (
+        {worldArticles && worldArticles.filter((worldArticle) => worldArticle.multimedia && worldArticle.multimedia.length > 0).map((worldArticle, index) => (
           <div key={index} className='bg-white rounded-lg shadow-md p-4'>
             {worldArticle.multimedia && worldArticle.multimedia.length > 0 && (
               <Image

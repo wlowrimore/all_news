@@ -49,7 +49,7 @@ const ScienceNews = () => {
       )}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
         {/* Filter the articles array to only include articles with a multimedia array that isn't empty */}
-        {scienceArticles.filter((scienceArticle) => scienceArticle.multimedia && scienceArticle.multimedia.length > 0).map((scienceArticle, index) => (
+        {scienceArticles && scienceArticles.filter((scienceArticle) => scienceArticle.multimedia && scienceArticle.multimedia.length > 0).map((scienceArticle, index) => (
           <div key={index} className='bg-white rounded-lg shadow-md p-4'>
             {scienceArticle.multimedia && scienceArticle.multimedia.length > 0 && (
               <Image

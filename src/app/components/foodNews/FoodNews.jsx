@@ -49,7 +49,7 @@ const FoodNews = () => {
       )}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
         {/* Filter the articles array to only include articles with a multimedia array that isn't empty */}
-        {foodArticles.filter((foodArticle) => foodArticle.multimedia && foodArticle.multimedia.length > 0).map((foodArticle, index) => (
+        {foodArticles && foodArticles.filter((foodArticle) => foodArticle.multimedia && foodArticle.multimedia.length > 0).map((foodArticle, index) => (
           <div key={index} className='bg-white rounded-lg shadow-md p-4'>
             {foodArticle.multimedia && foodArticle.multimedia.length > 0 && (
               <Image

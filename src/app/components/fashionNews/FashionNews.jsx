@@ -49,7 +49,7 @@ const FashionNews = () => {
       )}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
         {/* Filter the articles array to only include articles with a multimedia array that isn't empty */}
-        {fashionArticles.filter((fashionArticle) => fashionArticle.multimedia && fashionArticle.multimedia.length > 0).map((fashionArticle, index) => (
+        {fashionArticles && fashionArticles.filter((fashionArticle) => fashionArticle.multimedia && fashionArticle.multimedia.length > 0).map((fashionArticle, index) => (
           <div key={index} className='bg-white rounded-lg shadow-md p-4'>
             {fashionArticle.multimedia && fashionArticle.multimedia.length > 0 && (
               <Image

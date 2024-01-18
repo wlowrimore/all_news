@@ -47,7 +47,7 @@ const USNews = () => {
         </Link>
       )}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
-        {usArticles.filter((usArticle) => usArticle.multimedia && usArticle.multimedia.length > 0).map((usArticle, index) => (
+        {usArticles && usArticles.filter((usArticle) => usArticle.multimedia && usArticle.multimedia.length > 0).map((usArticle, index) => (
           <div key={index} className='bg-white rounded-lg shadow-md p-4'>
             {usArticle.multimedia && usArticle.multimedia.length > 0 && (
               <Image
