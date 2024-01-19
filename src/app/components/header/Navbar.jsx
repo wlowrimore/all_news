@@ -1,8 +1,12 @@
 'use client'
 
 import { useState, useEffect, useRef } from "react"
+import Image from "next/image";
 import Link from "next/link"
+import MainSearch from "../forms/MainSearch";
+import SearchIcon from '/public/images/searchIcon.svg'
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const dropdownRef = useRef(null);
 
@@ -28,9 +32,13 @@ const Navbar = () => {
     setActiveDropdown(null)
   }
 
+  const handleSearchIconClick = () => {
+    setIsOpen(!isOpen);
+  }
+
   return (
-    <nav className='flex justify-between items-center py-2 px-24 text-lg text-white bg-gray-800'>
-      <Link href='/' className='py-2 px-3 transition-all text-xl tracking-wider text-red-400 hover:bg-gray-700 duration-300'>NLN</Link>
+    <nav className='flex justify-between items-center py-2 px-44 text-lg text-white bg-gray-800'>
+      <Link href='/' className='py-2 px-3 transition-all text-2xl tracking-wider text-red-400 hover:bg-gray-700 duration-300'>NLN</Link>
 
       {/* Common News Dropdown */}
       <div className='py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('CommonNews')}>Common News</div>
@@ -94,6 +102,19 @@ const Navbar = () => {
           <Link href='/sports-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300'><p onClick={closeDropdown}>Sports</p></Link>
           <Link href='/travel-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300'><p onClick={closeDropdown}>Travel</p></Link>
         </div>
+      )}
+      <div onClick={handleSearchIconClick} className='flex space-x-1 py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer rounded-lg bg-blue-400/30'>
+        <Image
+          src={SearchIcon}
+          alt='Search Icon'
+          width={24}
+          height={24}
+          className='cursor-pointer'
+        />
+        <p className='text-sm'>Search</p>
+      </div>
+      {isOpen && (
+        <MainSearch isOpen={isOpen} handleSearchIconClick={handleSearchIconClick} />
       )}
     </nav>
   )
