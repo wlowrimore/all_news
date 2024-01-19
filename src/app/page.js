@@ -1,8 +1,10 @@
 import HomePageStories from "./components/HomePageStories";
 import { Noticia_Text } from "next/font/google";
+import { wait } from "./utils/wait";
 
 const noticia = Noticia_Text({ subsets: ['latin'], weight: ['400', '700'] })
-export default function Home() {
+export default async function Home() {
+  await wait(2500)
   return (
     <main className='flex min-h-screen flex-col items-center justify-between p-24 mx-[16rem]'>
       <div className='w-full flex'>
