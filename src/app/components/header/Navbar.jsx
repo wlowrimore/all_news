@@ -60,6 +60,7 @@ const Navbar = () => {
         <div ref={dropdownRef} className='absolute z-10 w-[10.6%] right-[1%] ml-[0.20rem] top-[6%] flex flex-col bg-gray-800'>
           <Link href='/upshot-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300' onClick={() => openDropdown('OtherNews')}>Up & Up</Link>
           <Link href='/opinion-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300' onClick={() => openDropdown('OtherNews')}>Opinion</Link>
+          <Link href='/obituaries' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300' onClick={() => openDropdown('OtherNews')}>In Memoriam</Link>
         </div>
       )}
 
