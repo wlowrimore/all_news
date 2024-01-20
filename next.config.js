@@ -24,6 +24,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'dims.apnews.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'nytimes.com',
+      },
     ],
   }
 }

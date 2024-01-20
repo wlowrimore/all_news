@@ -36,6 +36,12 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   }
 
+  if (isOpen) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'unset';
+  }
+
   return (
     <nav className='flex justify-between items-center py-2 px-44 text-lg text-white bg-gray-800'>
       <Link href='/' className='py-2 px-3 transition-all text-2xl tracking-wider text-red-400 hover:bg-gray-700 duration-300'>NLN</Link>
