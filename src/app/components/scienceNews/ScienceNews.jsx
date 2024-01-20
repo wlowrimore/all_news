@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Fade } from 'react-awesome-reveal'
 import { Noticia_Text } from "next/font/google";
 
 const noticia = Noticia_Text({ subsets: ['latin'], weight: ['400', '700'] })
@@ -30,44 +31,48 @@ const ScienceNews = () => {
       <h2 className={`${noticia.className} 2xl:text-3xl px-4`}>The wonderful world of science</h2>
       {/* Display the first article with a multimedia array that isn't empty */}
       {firstArticleWithMultimedia && (
-        <Link href={firstArticleWithMultimedia.url} target='_blank' rel='noopenernoreferrer' className='transition-all duration-300 hover:opacity-90'>
-          <div className='relative bg-gray-900 rounded-lg m-4 h-[33rem]'>
-            <Image
-              src={firstArticleWithMultimedia.multimedia[0].url}
-              alt={firstArticleWithMultimedia.multimedia[0].caption}
-              width={firstArticleWithMultimedia.multimedia[0].width}
-              height={firstArticleWithMultimedia.multimedia[0].height}
-              className='rounded-lg shadow-sm shadow-gray-500 w-full h-full object-cover opacity-60'
-              priority
-            />
-            <div className='absolute bottom-3 left-3 flex flex-col w-1/2 text-white bg-gray-800/90 p-4 rounded-lg'>
-              <h3 className='font-bold text-2xl'>{firstArticleWithMultimedia.title}</h3>
-              <p>{firstArticleWithMultimedia.abstract}</p>
+        <Fade direction='up' cascade triggerOnce>
+          <Link href={firstArticleWithMultimedia.url} target='_blank' rel='noopenernoreferrer' className='transition-all duration-300 hover:opacity-90'>
+            <div className='relative bg-gray-900 rounded-lg m-4 h-[33rem]'>
+              <Image
+                src={firstArticleWithMultimedia.multimedia[0].url}
+                alt={firstArticleWithMultimedia.multimedia[0].caption}
+                width={firstArticleWithMultimedia.multimedia[0].width}
+                height={firstArticleWithMultimedia.multimedia[0].height}
+                className='rounded-lg shadow-sm shadow-gray-500 w-full h-full object-cover opacity-60'
+                priority
+              />
+              <div className='absolute bottom-3 left-3 flex flex-col w-1/2 text-white bg-gray-800/90 p-4 rounded-lg'>
+                <h3 className='font-bold text-2xl'>{firstArticleWithMultimedia.title}</h3>
+                <p>{firstArticleWithMultimedia.abstract}</p>
+              </div>
             </div>
-          </div>
-        </Link>
+          </Link>
+        </Fade>
       )}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
         {/* Filter the articles array to only include articles with a multimedia array that isn't empty */}
         {scienceArticles && scienceArticles.filter((scienceArticle) => scienceArticle.multimedia && scienceArticle.multimedia.length > 0).map((scienceArticle, index) => (
-          <div key={index} className='bg-white rounded-lg shadow-md p-4'>
-            {scienceArticle.multimedia && scienceArticle.multimedia.length > 0 && (
-              <Image
-                src={scienceArticle.multimedia[0].url}
-                alt={scienceArticle.multimedia[0].caption}
-                width={scienceArticle.multimedia[0].width}
-                height={scienceArticle.multimedia[0].height}
-                className='rounded-lg shadow-sm shadow-gray-500 w-full transition-all duration-500 hover:scale-105'
-                priority
-              />
-            )}
-            <p className='text-xs italic'>{scienceArticle.byline.replace('By', '').trim()}&nbsp;<span>{new Date(scienceArticle.published_date).toLocaleDateString()}</span></p>
-            <div className='flex flex-col'>
-              <h2 className='text-lg font-bold'>{scienceArticle.title}</h2>
-              <p className='text-gray-600'>{scienceArticle.abstract}</p>
-              <Link href={scienceArticle.url} target="_blank" rel='noopener noreferrer' className='text-blue-500 hover:opacity-70 hover:underline text-sm'>Read more on NYT</Link>
+          <Fade key={index} direction='up' cascade triggerOnce>
+            <div key={index} className='bg-white rounded-lg shadow-md p-4'>
+              {scienceArticle.multimedia && scienceArticle.multimedia.length > 0 && (
+                <Image
+                  src={scienceArticle.multimedia[0].url}
+                  alt={scienceArticle.multimedia[0].caption}
+                  width={scienceArticle.multimedia[0].width}
+                  height={scienceArticle.multimedia[0].height}
+                  className='rounded-lg shadow-sm shadow-gray-500 w-full transition-all duration-500 hover:scale-105'
+                  priority
+                />
+              )}
+              <p className='text-xs italic'>{scienceArticle.byline.replace('By', '').trim()}&nbsp;<span>{new Date(scienceArticle.published_date).toLocaleDateString()}</span></p>
+              <div className='flex flex-col'>
+                <h2 className='text-lg font-bold'>{scienceArticle.title}</h2>
+                <p className='text-gray-600'>{scienceArticle.abstract}</p>
+                <Link href={scienceArticle.url} target="_blank" rel='noopener noreferrer' className='text-blue-500 hover:opacity-70 hover:underline text-sm'>Read more on NYT</Link>
+              </div>
             </div>
-          </div>
+          </Fade>
         ))}
       </div>
     </div>

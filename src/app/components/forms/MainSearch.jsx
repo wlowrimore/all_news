@@ -4,17 +4,26 @@ import { useState, useEffect } from 'react'
 import SearchIcon from '/public/images/searchIcon.svg'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Fade } from 'react-awesome-reveal'
+import { Noticia_Text } from "next/font/google";
+
+const noticia = Noticia_Text({ subsets: ['latin'], weight: ['400', '700'] })
 
 const MainSearch = ({ handleSearchIconClick, isOpen }) => {
   const [query, setQuery] = useState('')
   const [filter, setFilter] = useState('')
   const [searchResults, setSearchResults] = useState([])
+  const [errMsg, setErrMsg] = useState('')
 
   const API_KEY = process.env.NEXT_PUBLIC_NEWS_API_KEY
   const handleFormSubmit = async (e) => {
     e.preventDefault()
 
-    if (!query) return
+    if (!query) {
+      setErrMsg('Please enter a search query. Filter is optional.')
+      return
+    }
+    setErrMsg('')
 
     try {
       const response = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${query}&fq=${filter}&api-key=${API_KEY}`, { 'no-cache': true })
@@ -33,7 +42,7 @@ const MainSearch = ({ handleSearchIconClick, isOpen }) => {
   const shortenedUrl = 'https://nytimes.com/'
 
   return (
-    <main className={`fixed top-0 left-0 right-0 bottom-0 z-20 w-screen h-screen bg-blue-100 flex flex-col items-center px-[20%] py-24 overflow-scroll  transition-all duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+    <main className={`${noticia.className} fixed top-0 left-0 right-0 bottom-0 z-20 w-screen h-screen bg-blue-100 flex flex-col items-center px-[20%] py-24 overflow-scroll  transition-all duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
       <section className='flex justify-center'>
         <div onClick={handleSearchIconClick} className='fixed top-6 right-10 text-2xl text-white bg-red-600/60 cursor-pointer hover:bg-neutral-500 transition-all duration-300 py-2 px-4 rounded-full'>X</div>
         <form onSubmit={handleFormSubmit}>
@@ -66,30 +75,37 @@ const MainSearch = ({ handleSearchIconClick, isOpen }) => {
         </form>
       </section>
       <section className='w-full h-screen flex flex-col mx-auto my-12'>
-        <h1 className='text-2xl text-neutral-800 text-center'>Showing results for &quot;<span className='text-red-500'>{query}</span>&quot;</h1>
+        {errMsg ? (<p className='text-red-500 text-center'>{errMsg}</p>) : (
+          searchResults.length > 0 &&
+          <Fade direction='right' cascade triggerOnce>
+            <h1 className='text-2xl text-neutral-800 text-center'>Showing results for &quot;<span className='text-red-500'>{query}</span>&quot;</h1>
+          </Fade>
+        )}
         <div className='w-full flex justify-center'>
           <div className='flex flex-col my-12'>
             {searchResults.map((articles) => (
               articles.response.docs.map((article, index) => (
-                <div key={index} className='text-neutral-800'>
-                  <div className='w-full flex items-center justify-start gap-10'>
-                    {article.multimedia[0]?.url && (
-                      <Image
-                        src={`${shortenedUrl}${article.multimedia[0].url}`}
-                        alt={article.kicker}
-                        width={200}
-                        height={200}
-                        className='rounded-md my-3'
-                        priority
-                      />
-                    )}
-                    <div className='flex flex-col mb-4'>
-                      <p className='text-start w-full font-bold'>{article.headline.main}</p>
-                      <article>{article.lead_paragraph}</article>
-                      <Link href={article.web_url} target='_blank' rel='noopener noreferrer'><p className='text-sm text-blue-500 hover:text-neutral-800 hover:underline'>Read the full article</p></Link>
+                <Fade key={index} direction='up' cascade triggerOnce>
+                  <div key={index} className='text-neutral-800'>
+                    <div className='w-full flex items-center justify-start gap-10'>
+                      {article.multimedia[0]?.url && (
+                        <Image
+                          src={`${shortenedUrl}${article.multimedia[0].url}`}
+                          alt={article.kicker}
+                          width={200}
+                          height={200}
+                          className='rounded-md my-3'
+                          priority
+                        />
+                      )}
+                      <div className='flex flex-col mb-4'>
+                        <p className='text-start w-full font-bold'>{article.headline.main}</p>
+                        <article>{article.lead_paragraph}</article>
+                        <Link href={article.web_url} target='_blank' rel='noopener noreferrer'><p className='text-sm text-blue-500 hover:text-neutral-800 hover:underline'>Read the full article</p></Link>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Fade>
               ))
             ))}
           </div>
