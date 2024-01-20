@@ -5,7 +5,7 @@ import SearchIcon from '/public/images/searchIcon.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const MainSearch = ({ handleSearchIconClick }) => {
+const MainSearch = ({ handleSearchIconClick, isOpen }) => {
   const [query, setQuery] = useState('')
   const [filter, setFilter] = useState('')
   const [searchResults, setSearchResults] = useState([])
@@ -33,7 +33,7 @@ const MainSearch = ({ handleSearchIconClick }) => {
   const shortenedUrl = 'https://nytimes.com/'
 
   return (
-    <main className='fixed top-0 left-0 right-0 bottom-0 z-20 w-screen h-screen bg-blue-100 flex flex-col items-center px-[20%] py-24 overflow-scroll'>
+    <main className={`fixed top-0 left-0 right-0 bottom-0 z-20 w-screen h-screen bg-blue-100 flex flex-col items-center px-[20%] py-24 overflow-scroll  transition-all duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
       <section className='flex justify-center'>
         <div onClick={handleSearchIconClick} className='fixed top-6 right-10 text-2xl text-white bg-red-600/60 cursor-pointer hover:bg-neutral-500 transition-all duration-300 py-2 px-4 rounded-full'>X</div>
         <form onSubmit={handleFormSubmit}>
