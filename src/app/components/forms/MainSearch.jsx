@@ -91,7 +91,7 @@ const MainSearch = ({ handleSearchIconClick, isOpen }) => {
                       {article.multimedia[0]?.url && (
                         <Image
                           src={`${shortenedUrl}${article.multimedia[0].url}`}
-                          alt={article.kicker}
+                          alt={`${article.headline.main} : ${article.lead_paragraph} : 'topic related`}
                           width={200}
                           height={200}
                           className='rounded-md my-3'
