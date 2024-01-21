@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Clock from "react-live-clock";
 import Image from "next/image";
 import Link from "next/link"
-import MainSearch from "../forms/MainSearch";
+import MainSearch from "../searchModal/MainSearch";
 import SearchIcon from '/public/images/searchIcon.svg'
 
 const Navbar = () => {

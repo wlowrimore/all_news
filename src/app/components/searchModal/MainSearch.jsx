@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Fade } from 'react-awesome-reveal'
 import { Noticia_Text } from "next/font/google";
+import SearchInstructions from './SearchInstructions'
 
 const noticia = Noticia_Text({ subsets: ['latin'], weight: ['400', '700'] })
 
@@ -43,6 +44,10 @@ const MainSearch = ({ handleSearchIconClick, isOpen }) => {
 
   return (
     <main className={`${noticia.className} fixed top-0 left-0 right-0 bottom-0 z-20 w-screen h-screen bg-blue-100 flex flex-col items-center px-[20%] py-24 overflow-scroll  transition-all duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+      <div className='mb-12 flex flex-col items-center'>
+        <h1 className='text-7xl font-bold text-red-400'>NLN</h1>
+        <h2 className='text-xl -mt-2 text-neutral-800'>News Link Now</h2>
+      </div>
       <section className='flex justify-center'>
         <div onClick={handleSearchIconClick} className='fixed top-6 right-10 text-2xl text-white bg-red-600/60 cursor-pointer hover:bg-neutral-500 transition-all duration-300 py-2 px-4 rounded-full'>X</div>
         <form onSubmit={handleFormSubmit}>
@@ -62,7 +67,9 @@ const MainSearch = ({ handleSearchIconClick, isOpen }) => {
               type="text"
               placeholder="Filter"
               className='outline-none rounded px-4 py-1 text-neutral-800 placeholder:text-sm border border-black/20 bg-neutral-100' />
-            <button className='bg-gray-500 rounded px-4 py-2 hover:bg-blue-500 transition-all duration-300'>
+          </div>
+          <button className='w-full text-center bg-gray-500 rounded mt-4 px-4 py-2 hover:bg-blue-500 transition-all duration-300'>
+            <div className='w-full flex gap-2 items-center justify-center'>
               <Image
                 src={SearchIcon}
                 alt="Search Icon"
@@ -70,10 +77,12 @@ const MainSearch = ({ handleSearchIconClick, isOpen }) => {
                 height={20}
                 className=''
               />
-            </button>
-          </div>
+              <p className='text-[1.5rem]'>Search</p>
+            </div>
+          </button>
         </form>
       </section>
+      {!errMsg && searchResults.length === 0 && <SearchInstructions />}
       <section className='w-full h-screen flex flex-col mx-auto my-12'>
         {errMsg ? (<p className='text-red-500 text-center'>{errMsg}</p>) : (
           searchResults.length > 0 &&

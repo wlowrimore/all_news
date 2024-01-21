@@ -1,7 +1,7 @@
 import HomePageStories from "./components/HomePageStories";
 import { Noticia_Text } from "next/font/google";
 import { wait } from "./utils/wait";
-import MainSearch from "./components/forms/MainSearch";
+import MainSearch from "./components/searchModal/MainSearch";
 
 const noticia = Noticia_Text({ subsets: ['latin'], weight: ['400', '700'] })
 export default async function Home() {
