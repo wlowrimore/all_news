@@ -96,9 +96,9 @@ const MobileNav = () => {
             {activeDropdown === 'StrategicNews' && (
               <div ref={dropdownRef} className='absolute z-100 w-full top-[29%] flex bg-gray-800'>
                 <Link href='/business-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Business</p></Link>
-                <Link href='/realestate-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={onClick = { toggleNav }}>Real Estate</p></Link>
-                <Link href='/tech-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={onClick = { toggleNav }}>Tech</p></Link>
-                <Link href='/science-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300 w-[31.5%]'><p onClick={onClick = { toggleNav }}>Science</p></Link>
+                <Link href='/realestate-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Real Estate</p></Link>
+                <Link href='/tech-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Tech</p></Link>
+                <Link href='/science-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300 w-[31.5%]'><p onClick={toggleNav}>Science</p></Link>
               </div>
             )}
 
@@ -131,8 +131,8 @@ const MobileNav = () => {
             <div className='text-sm tracking-widest py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('BodyAndMind')}>Body & Mind</div>
             {activeDropdown === 'BodyAndMind' && (
               <div ref={dropdownRef} className='absolute z-10 w-full top-[62%] flex bg-gray-800'>
-                <Link href='/food-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={onClick = { toggleNav }}>Food</p></Link>
-                <Link href='/health-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300 w-full'><p onClick={onClick = { toggleNav }}>Health</p></Link>
+                <Link href='/food-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Food</p></Link>
+                <Link href='/health-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300 w-full'><p onClick={toggleNav}>Health</p></Link>
               </div>
             )}
 
@@ -140,8 +140,8 @@ const MobileNav = () => {
             <div className='text-sm tracking-widest py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('SpecialInterests')}>Special Interests</div>
             {activeDropdown === 'SpecialInterests' && (
               <div ref={dropdownRef} className='absolute z-10 w-full top-[73%] flex bg-gray-800'>
-                <Link href='/sports-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={onClick = { toggleNav }}>Sports</p></Link>
-                <Link href='/travel-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300 w-full'><p onClick={onClick = { toggleNav }}>Travel</p></Link>
+                <Link href='/sports-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Sports</p></Link>
+                <Link href='/travel-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300 w-full'><p onClick={toggleNav}>Travel</p></Link>
               </div>
             )}
             <div onClick={handleSearchIconClick} className='flex space-x-1 py-2 lg:py-1 xl:py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer rounded-lg bg-blue-400/30'>

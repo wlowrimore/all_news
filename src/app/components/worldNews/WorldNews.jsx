@@ -27,8 +27,8 @@ const WorldNews = () => {
 
   return (
     <div className='max-w-7xl mx-auto'>
-      <h1 className={`${noticia.className} 2xl:text-5xl px-4 pb-2`}>World News</h1>
-      <h2 className={`${noticia.className} 2xl:text-3xl px-4`}>See what&apos;s going on around the globe</h2>
+      <h1 className={`${noticia.className} text-3xl px-4 md:text-4xl 2xl:text-5xl`}>World News</h1>
+      <h2 className={`${noticia.className} px-4 md:text-lg 2xl:text-3xl`}>See what&apos;s going on around the globe</h2>
       {firstArticleWithMultimedia && (
         <Fade direction='up' cascade triggerOnce>
           <Link href={firstArticleWithMultimedia.url} target='_blank' rel='noopenernoreferrer' className='transition-all duration-300 hover:opacity-90'>
@@ -41,13 +41,13 @@ const WorldNews = () => {
                 className='rounded-lg shadow-sm shadow-gray-500 w-full h-full object-cover opacity-60'
                 priority
               />
-              <div className='absolute bottom-3 left-3 flex flex-col w-1/2 text-white bg-gray-800/90 p-4 rounded-lg'>
-                <h3 className='font-bold text-2xl'>{firstArticleWithMultimedia.title}</h3>
-                <p>{firstArticleWithMultimedia.abstract}</p>
+              <div className='absolute bottom-1.5 md:bottom-3 left-1.5 md:left-3.5 flex flex-col w-[96%] lg:w-2/3 xl:w-1/2 text-white bg-gray-800/90 p-4 rounded-lg'>
+                <h3 className='font-bold md:text-2xl'>{firstArticleWithMultimedia.title}</h3>
+                <p className='text-sm font-thin md:text-md md:font-normal tracking-wider'>{firstArticleWithMultimedia.abstract}</p>
               </div>
             </div>
           </Link>
-        </Fade>
+          00000        </Fade>
       )}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
         {worldArticles && worldArticles.filter((worldArticle) => worldArticle.multimedia && worldArticle.multimedia.length > 0).map((worldArticle, index) => (
