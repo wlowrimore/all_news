@@ -33,12 +33,12 @@ const HomePageStories = () => {
                 alt={firstArticleWithMultimedia.multimedia[0].caption}
                 width={firstArticleWithMultimedia.multimedia[0].width}
                 height={firstArticleWithMultimedia.multimedia[0].height}
-                className='rounded-lg shadow-sm shadow-gray-500 w-full h-full object-cover opacity-90'
+                className='rounded-lg shadow-sm shadow-gray-500 w-full h-full object-cover md:opacity-90'
                 priority
               />
-              <div className='absolute bottom-3 left-3 flex flex-col w-1/2 text-white bg-gray-800/90 p-4 rounded-lg'>
-                <h3 className='font-bold text-2xl'>{firstArticleWithMultimedia.title}</h3>
-                <p>{firstArticleWithMultimedia.abstract}</p>
+              <div className='absolute bottom-1.5 md:bottom-3 left-1.5 md:left-3.5 flex flex-col w-[96%] lg:w-2/3 xl:w-1/2 text-white bg-gray-800/90 p-4 rounded-lg'>
+                <h3 className='font-bold md:text-2xl'>{firstArticleWithMultimedia.title}</h3>
+                <p className='text-sm font-thin md:text-md md:font-normal tracking-wider'>{firstArticleWithMultimedia.abstract}</p>
               </div>
             </div>
           </Link>
