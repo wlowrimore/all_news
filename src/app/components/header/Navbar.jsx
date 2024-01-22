@@ -12,6 +12,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [date, setDate] = useState(null);
+  const [toggleMenu, setToggleMenu] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -30,6 +31,7 @@ const Navbar = () => {
 
   const openDropdown = (dropdownName) => {
     setActiveDropdown(dropdownName);
+    setToggleMenu(!toggleMenu)
   }
 
   const closeDropdown = () => {
@@ -70,7 +72,7 @@ const Navbar = () => {
 
         {/* Common News Dropdown */}
         <div className='text-xs lg:text-sm xl:text-lg py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('CommonNews')}>Common News</div>
-        {activeDropdown === 'CommonNews' && (
+        {activeDropdown === 'CommonNews' && toggleMenu && (
           <div ref={dropdownRef} className='absolute z-10 w-[10.6%] 2xl:left-[14.9%] ml-[0.20rem] top-[6%] flex flex-col bg-gray-800'>
             <Link href='/world-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300'><p onClick={closeDropdown}>World News</p></Link>
             <Link href='/us-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300'><p onClick={closeDropdown}>U.S. News</p></Link>
@@ -81,7 +83,7 @@ const Navbar = () => {
 
         {/* Strategic News Dropdown */}
         <div className='text-xs lg:text-sm xl:text-lg py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('StrategicNews')}>Strategic News</div>
-        {activeDropdown === 'StrategicNews' && (
+        {activeDropdown === 'StrategicNews' && toggleMenu && (
           <div ref={dropdownRef} className='absolute z-10 w-[10.6%] 2xl:left-[24.65%] ml-[0.20rem] top-[6%] flex flex-col bg-gray-800'>
             <Link href='/business-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300'><p onClick={closeDropdown}>Business</p></Link>
             <Link href='/realestate-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300'><p onClick={closeDropdown}>Real Estate</p></Link>
@@ -92,7 +94,7 @@ const Navbar = () => {
 
         {/* Other News Dropdown */}
         <div className='text-xs lg:text-sm xl:text-lg py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('OtherNews')}>Other News</div>
-        {activeDropdown === 'OtherNews' && (
+        {activeDropdown === 'OtherNews' && toggleMenu && (
           <div ref={dropdownRef} className='absolute z-10 w-[10.6%] 2xl:left-[34.3%] ml-[0.20rem] top-[6%] flex flex-col bg-gray-800'>
             <Link href='/upshot-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300' onClick={() => openDropdown('OtherNews')}>Up & Up</Link>
             <Link href='/opinion-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300' onClick={() => openDropdown('OtherNews')}>Opinion</Link>
@@ -102,7 +104,7 @@ const Navbar = () => {
 
         {/* Arts & Entertainment Dropdown */}
         <div className='text-xs lg:text-sm xl:text-lg py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('ArtsAndEntertainment')}>Arts & Entertainment</div>
-        {activeDropdown === 'ArtsAndEntertainment' && (
+        {activeDropdown === 'ArtsAndEntertainment' && toggleMenu && (
           <div ref={dropdownRef} className='absolute z-10 w-[10.6%] 2xl:left-[42.7%] ml-[0.20rem] top-[6%] flex flex-col bg-gray-800'>
             <Link href='/movie-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300'><p onClick={closeDropdown}>Movies</p></Link>
             <Link href='/fashion-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300'><p onClick={closeDropdown}>Fashion</p></Link>
@@ -116,7 +118,7 @@ const Navbar = () => {
 
         {/* Body & Mind Dropdown */}
         <div className='text-xs lg:text-sm xl:text-lg py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('BodyAndMind')}>Body & Mind</div>
-        {activeDropdown === 'BodyAndMind' && (
+        {activeDropdown === 'BodyAndMind' && toggleMenu && (
           <div ref={dropdownRef} className='absolute z-10 w-[10.6%] 2xl:right-[34.2%] ml-[0.20rem] top-[6%] flex flex-col bg-gray-800'>
             <Link href='/food-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300'><p onClick={closeDropdown}>Food</p></Link>
             <Link href='/health-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300'><p onClick={closeDropdown}>Health</p></Link>
@@ -125,7 +127,7 @@ const Navbar = () => {
 
         {/* Special Interests Dropdown */}
         <div className='text-xs lg:text-sm xl:text-lg py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('SpecialInterests')}>Special Interests</div>
-        {activeDropdown === 'SpecialInterests' && (
+        {activeDropdown === 'SpecialInterests' && toggleMenu && (
           <div ref={dropdownRef} className='absolute z-10 w-[10.6%] 2xl:right-[25.4%] ml-[0.20rem] top-[6%] flex flex-col bg-gray-800'>
             <Link href='/sports-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300'><p onClick={closeDropdown}>Sports</p></Link>
             <Link href='/travel-news' className='py-2 px-3 transition-all hover:bg-gray-700 duration-300'><p onClick={closeDropdown}>Travel</p></Link>

@@ -12,6 +12,7 @@ const MobileNav = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [date, setDate] = useState(null);
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [toggleMenu, setToggleMenu] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -30,6 +31,7 @@ const MobileNav = () => {
 
   const openDropdown = (dropdownName) => {
     setActiveDropdown(dropdownName);
+    setToggleMenu(!toggleMenu)
   }
 
   const closeDropdown = () => {
@@ -76,13 +78,13 @@ const MobileNav = () => {
       </div>
       {isNavOpen && (
         <div className='fixed z-20 top-0 left-0 w-full h-full'>
-          <h1 onClick={toggleNav} className='absolute top-4 right-4 z-50 text-2xl text-gray-200'>X</h1>
+          <h1 onClick={toggleNav} className='fixed top-4 right-4 z-30 text-2xl text-gray-200'>X</h1>
           <nav className='relative flex flex-col w-full h-full justify-between py-2 lg:px-8 xl:px-20 2xl:px-44 text-lg text-white bg-gray-800'>
             <Link href='/' onClick={toggleNav} className='py-2 px-3 transition-all text-2xl tracking-wider text-red-400 hover:bg-gray-700 duration-300'>NLN</Link>
 
             {/* Common News Dropdown */}
             <div className='text-sm tracking-widest py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('CommonNews')}>Common News</div>
-            {activeDropdown === 'CommonNews' && (
+            {activeDropdown === 'CommonNews' && toggleMenu && (
               <div ref={dropdownRef} className='absolute z-10 w-full top-[18%] flex bg-gray-800'>
                 <Link href='/world-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>World News</p></Link>
                 <Link href='/us-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>U.S. News</p></Link>
@@ -93,7 +95,7 @@ const MobileNav = () => {
 
             {/* Strategic News Dropdown */}
             <div className='text-sm tracking-widest py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('StrategicNews')}>Strategic News</div>
-            {activeDropdown === 'StrategicNews' && (
+            {activeDropdown === 'StrategicNews' && toggleMenu && (
               <div ref={dropdownRef} className='absolute z-100 w-full top-[29%] flex bg-gray-800'>
                 <Link href='/business-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Business</p></Link>
                 <Link href='/realestate-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Real Estate</p></Link>
@@ -104,7 +106,7 @@ const MobileNav = () => {
 
             {/* Other News Dropdown */}
             <div className='text-sm tracking-widest py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('OtherNews')}>Other News</div>
-            {activeDropdown === 'OtherNews' && (
+            {activeDropdown === 'OtherNews' && toggleMenu && (
               <div ref={dropdownRef} className='absolute z-10 w-full top-[40%] flex bg-gray-800'>
                 <Link href='/upshot-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300' onClick={() => openDropdown('OtherNews')}><p onClick={toggleNav}>Up & Up</p></Link>
                 <Link href='/opinion-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300' onClick={() => openDropdown('OtherNews')}><p onClick={toggleNav}>Opinion</p></Link>
@@ -114,7 +116,7 @@ const MobileNav = () => {
 
             {/* Arts & Entertainment Dropdown */}
             <div className='text-sm tracking-widest py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('ArtsAndEntertainment')}>Arts & Entertainment</div>
-            {activeDropdown === 'ArtsAndEntertainment' && (
+            {activeDropdown === 'ArtsAndEntertainment' && toggleMenu && (
               <div ref={dropdownRef} className='absolute z-10 w-full top-[51%] grid grid-cols-2 bg-gray-800'>
                 <Link href='/movie-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Movies</p></Link>
                 <Link href='/fashion-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Fashion</p></Link>
@@ -129,7 +131,7 @@ const MobileNav = () => {
 
             {/* Body & Mind Dropdown */}
             <div className='text-sm tracking-widest py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('BodyAndMind')}>Body & Mind</div>
-            {activeDropdown === 'BodyAndMind' && (
+            {activeDropdown === 'BodyAndMind' && toggleMenu && (
               <div ref={dropdownRef} className='absolute z-10 w-full top-[62%] flex bg-gray-800'>
                 <Link href='/food-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Food</p></Link>
                 <Link href='/health-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300 w-full'><p onClick={toggleNav}>Health</p></Link>
@@ -138,13 +140,13 @@ const MobileNav = () => {
 
             {/* Special Interests Dropdown */}
             <div className='text-sm tracking-widest py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('SpecialInterests')}>Special Interests</div>
-            {activeDropdown === 'SpecialInterests' && (
+            {activeDropdown === 'SpecialInterests' && toggleMenu && (
               <div ref={dropdownRef} className='absolute z-10 w-full top-[73%] flex bg-gray-800'>
                 <Link href='/sports-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Sports</p></Link>
                 <Link href='/travel-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300 w-full'><p onClick={toggleNav}>Travel</p></Link>
               </div>
             )}
-            <div onClick={handleSearchIconClick} className='flex space-x-1 py-2 lg:py-1 xl:py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer rounded-lg bg-blue-400/30'>
+            <div onClick={handleSearchIconClick} className='flex justify-center space-x-2 py-2 px-4 w-[94%] mt-6 mx-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer rounded-lg bg-blue-400/5'>
               <Image
                 src={SearchIcon}
                 alt='Search Icon'
@@ -152,7 +154,7 @@ const MobileNav = () => {
                 height={24}
                 className='cursor-pointer'
               />
-              {/* <p className='hidden md:text-sm'>Search</p> */}
+              <p className='flex text-lg'>Search for articles</p>
             </div>
             <div className='pt-6 pb-12 text-center'>
               <p className='text-3xl text-neutral-100 tracking-widest'><Clock format='h:mm:ss a' ticking={true} timezone={'US/Central'} noSsr={true} /></p>
