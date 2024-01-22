@@ -12,6 +12,7 @@ const noticia = Noticia_Text({ subsets: ['latin'], weight: ['400', '700'] })
 
 const MainSearch = ({ handleSearchIconClick, isOpen }) => {
   const [query, setQuery] = useState('')
+  const [savedQuery, setSavedQuery] = useState('')
   const [filter, setFilter] = useState('')
   const [searchResults, setSearchResults] = useState([])
   const [errMsg, setErrMsg] = useState('')
@@ -34,12 +35,11 @@ const MainSearch = ({ handleSearchIconClick, isOpen }) => {
     } catch (error) {
       console.error('Error fetching data:', error)
     }
-    // setQuery('')
-    // setFilter('')
+    setSavedQuery(query)
+    setQuery('')
+    setFilter('')
   }
 
-
-  console.log(searchResults)
   const shortenedUrl = 'https://nytimes.com/'
 
   return (
@@ -84,11 +84,27 @@ const MainSearch = ({ handleSearchIconClick, isOpen }) => {
       </section>
       {!errMsg && searchResults.length === 0 && <SearchInstructions />}
       <section className='w-full h-screen flex flex-col mx-auto my-12'>
-        {errMsg ? (<p className='text-red-500 text-center'>{errMsg}</p>) : (
-          searchResults.length > 0 &&
-          <Fade direction='right' cascade triggerOnce>
-            <h1 className='text-2xl text-neutral-800 text-center'>Showing results for &quot;<span className='text-red-500'>{query}</span>&quot;</h1>
-          </Fade>
+        {errMsg ? (
+          <p className='text-red-500 text-center'>{errMsg}</p>
+        ) : searchResults.length > 0 ? (
+          searchResults.every(result => result.response.docs.length > 0) ? (
+            <Fade direction='right' cascade triggerOnce>
+              <h1 className='text-2xl text-neutral-800 text-center'>
+                Showing results for &quot;<span className='text-red-500'>{savedQuery}</span>&quot;
+              </h1>
+            </Fade>
+          ) : (
+            <Fade direction='right' cascade triggerOnce>
+              <h1 className='text-2xl text-neutral-800 text-center'>
+                No results found for &quot;<span className='text-red-500'>{savedQuery}</span>&quot;
+              </h1>
+            </Fade>
+          )
+        ) : (
+          <>
+            <h1 className='fixed top-[46%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12rem] tracking-wider font-bold opacity-50 text-blue-50 text-center'>NLN</h1>
+            <p className='fixed top-[57%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl tracking-wide font-bold opacity-50 text-blue-50 text-center'>News Link Now</p>
+          </>
         )}
         <div className='w-full flex justify-center'>
           <div className='flex flex-col my-12'>
@@ -121,6 +137,8 @@ const MainSearch = ({ handleSearchIconClick, isOpen }) => {
         </div>
       </section>
     </main>
+
+
   )
 }
 
