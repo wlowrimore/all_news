@@ -5,6 +5,9 @@ import Navbar from './components/header/Navbar'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
+  icons: {
+    icon: '/favicon.ico',
+  },
   title: 'News Link Now',
   description: 'Get up-to-date news from the New York Times. Search for anything from a specific person to a specific topic.  Be sure to use the filter field to narrow down your search for a more focused result.',
   keywords: 'New York Times, News, Search, Filter, News Link Now, Insider News, Food News, Health News, Tech News, Sports News, Opinion News, World News, Food, Health, Tech, Sports, Opinion, World, Insider, Search, Filter, News Link Now, 2023',
