@@ -72,7 +72,7 @@ const MobileNav = () => {
 
   return (
     <main>
-      <div onClick={toggleNav} className='md:hidden bg-gray-800 flex flex-col items-center py-4 space-y-1'>
+      <div onClick={toggleNav} className='md:hidden bg-gray-800 fixed flex flex-col items-center pt-5 pb-4 space-y-1 top-[-1%] left-0 right-0 z-10'>
         <div className='w-[5%] h-[0.12rem] bg-gray-200 rounded-full'></div>
         <div className='w-[10%] h-[0.15rem] bg-gray-200 rounded-full'></div>
         <div className='w-[5%] h-[0.12rem] bg-gray-200 rounded-full'></div>
