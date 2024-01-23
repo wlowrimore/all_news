@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# News Link Now
 
-## Getting Started
+### A Next.js Application that utilizes the NYTimes API.
 
-First, run the development server:
+This application features up-to-date news articles that are fetched directly from the New York Times API. This application is mobile responsive ( by way of TailwindCSS ).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+News articles can be found on all topics covered by the New York Times. Furthermore, I have included the ability to search via a search (popup) modal that uses the search endpoint of the API.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+News Link Now is SEO Compliant, including detailed metadata for every page.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+You will find lots of dynamic goodies in this application, with more to come. As for now, enjoy this app as it puts the latest news within your reach.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<img src='public/images/readme-images/example.webp' alt='example of site' />
 
-## Learn More
+### USAGE
 
-To learn more about Next.js, take a look at the following resources:
+If you would like to give this site a go, you can access it at [news-link-now.vercel.app](https://news-link-now.vercel.app/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### CONTACT
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[wlowrimore@gmail.com](mailto://wlowrimore@gmail.com)<br>
+[www.williamlowrimore.com](https://www.williamlowrimore.com)<br>
+[www.linkedin.com](https://www.linkedin.com/in/william-lowrimore)
