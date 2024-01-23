@@ -83,67 +83,67 @@ const MobileNav = () => {
             <Link href='/' onClick={toggleNav} className='py-2 px-3 transition-all text-2xl tracking-wider text-red-400 hover:bg-gray-700 duration-300'>NLN</Link>
 
             {/* Common News Dropdown */}
-            <div className='text-sm tracking-widest py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('CommonNews')}>Common News</div>
+            <div className={`text-md tracking-widest py-2 px-3 transition-all duration-300 cursor-pointer ${activeDropdown === 'CommonNews' ? 'bg-gray-700' : ''}`} onClick={() => openDropdown('CommonNews')}>Common News</div>
             {activeDropdown === 'CommonNews' && toggleMenu && (
-              <div ref={dropdownRef} className='absolute z-10 w-full top-[18%] flex bg-gray-800'>
-                <Link href='/world-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>World News</p></Link>
-                <Link href='/us-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>U.S. News</p></Link>
-                <Link href='/insider-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Insider News</p></Link>
-                <Link href='/political-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Political News</p></Link>
+              <div ref={dropdownRef} className='absolute z-10 text-sm w-full pt-2 pb-4 top-[17%] flex flex-col bg-gray-700 transition-all duration-300'>
+                <Link href='/world-news' className='py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>World News</p></Link>
+                <Link href='/us-news' className='py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>U.S. News</p></Link>
+                <Link href='/insider-news' className='py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Insider News</p></Link>
+                <Link href='/political-news' className='py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Political News</p></Link>
               </div>
             )}
 
             {/* Strategic News Dropdown */}
-            <div className='text-sm tracking-widest py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('StrategicNews')}>Strategic News</div>
+            <div className={`text-md tracking-widest py-2 px-3 transition-all duration-300 cursor-pointer ${activeDropdown === 'StrategicNews' ? 'bg-gray-700' : ''}`} onClick={() => openDropdown('StrategicNews')}>Strategic News</div>
             {activeDropdown === 'StrategicNews' && toggleMenu && (
-              <div ref={dropdownRef} className='absolute z-100 w-full top-[29%] flex bg-gray-800'>
-                <Link href='/business-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Business</p></Link>
-                <Link href='/realestate-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Real Estate</p></Link>
-                <Link href='/tech-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Tech</p></Link>
-                <Link href='/science-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300 w-[31.5%]'><p onClick={toggleNav}>Science</p></Link>
+              <div ref={dropdownRef} className='absolute text-sm z-100 w-full pt-3 pb-4 top-[26%] flex flex-col bg-gray-700'>
+                <Link href='/business-news' className='py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Business</p></Link>
+                <Link href='/realestate-news' className='py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Real Estate</p></Link>
+                <Link href='/tech-news' className='py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Tech</p></Link>
+                <Link href='/science-news' className='py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Science</p></Link>
               </div>
             )}
 
             {/* Other News Dropdown */}
-            <div className='text-sm tracking-widest py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('OtherNews')}>Other News</div>
+            <div className={`text-md tracking-widest py-2 px-3 transition-all duration-300 cursor-pointer ${activeDropdown === 'OtherNews' ? 'bg-gray-700' : ''}`} onClick={() => openDropdown('OtherNews')}>Other News</div>
             {activeDropdown === 'OtherNews' && toggleMenu && (
-              <div ref={dropdownRef} className='absolute z-10 w-full top-[40%] flex bg-gray-800'>
-                <Link href='/upshot-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300' onClick={() => openDropdown('OtherNews')}><p onClick={toggleNav}>Up & Up</p></Link>
-                <Link href='/opinion-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300' onClick={() => openDropdown('OtherNews')}><p onClick={toggleNav}>Opinion</p></Link>
-                <Link href='/obituaries' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300 w-[55%]' onClick={() => openDropdown('OtherNews')}><p onClick={toggleNav}>In Memoriam</p></Link>
+              <div ref={dropdownRef} className='absolute text-sm z-10 w-full pt-2 pb-4 top-[35%] flex flex-col bg-gray-700'>
+                <Link href='/upshot-news' className='py-2 px-3 transition-all bg-gray-700 duration-300' onClick={() => openDropdown('OtherNews')}><p onClick={toggleNav}>Up & Up</p></Link>
+                <Link href='/opinion-news' className='py-2 px-3 transition-all bg-gray-700 duration-300' onClick={() => openDropdown('OtherNews')}><p onClick={toggleNav}>Opinion</p></Link>
+                <Link href='/obituaries' className='py-2 px-3 transition-all bg-gray-700 duration-300' onClick={() => openDropdown('OtherNews')}><p onClick={toggleNav}>In Memoriam</p></Link>
               </div>
             )}
 
             {/* Arts & Entertainment Dropdown */}
-            <div className='text-sm tracking-widest py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('ArtsAndEntertainment')}>Arts & Entertainment</div>
+            <div className={`text-md tracking-widest py-2 px-3 transition-all duration-300 cursor-pointer ${activeDropdown === 'ArtsAndEntertainment' ? 'bg-gray-700' : ''}`} onClick={() => openDropdown('ArtsAndEntertainment')}>Arts & Entertainment</div>
             {activeDropdown === 'ArtsAndEntertainment' && toggleMenu && (
-              <div ref={dropdownRef} className='absolute z-10 w-full top-[51%] grid grid-cols-2 bg-gray-800'>
-                <Link href='/movie-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Movies</p></Link>
-                <Link href='/fashion-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Fashion</p></Link>
-                <Link href='/magazine-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Magazine</p></Link>
-                <Link href='/t-magazine-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>T Magazine</p></Link>
-                <Link href='/theater-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Theater</p></Link>
-                <Link href='/arts-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Arts</p></Link>
-                <Link href='/literary-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Literature</p></Link>
+              <div ref={dropdownRef} className='absolute text-sm z-10 w-full pt-2 pb-4 top-[44%] flex flex-col bg-gray-700'>
+                <Link href='/movie-news' className='text-sm py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Movies</p></Link>
+                <Link href='/fashion-news' className='text-sm py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Fashion</p></Link>
+                <Link href='/magazine-news' className='text-sm py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Magazine</p></Link>
+                <Link href='/t-magazine-news' className='text-sm py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>T Magazine</p></Link>
+                <Link href='/theater-news' className='text-sm py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Theater</p></Link>
+                <Link href='/arts-news' className='text-sm py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Arts</p></Link>
+                <Link href='/literary-news' className='text-sm py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Literature</p></Link>
                 <div className='bg-gray-700 w-full'></div>
               </div>
             )}
 
             {/* Body & Mind Dropdown */}
-            <div className='text-sm tracking-widest py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('BodyAndMind')}>Body & Mind</div>
+            <div className={`text-md tracking-widest py-2 px-3 transition-all duration-300 cursor-pointer ${activeDropdown === 'BodyAndMind' ? 'bg-gray-700' : ''}`} onClick={() => openDropdown('BodyAndMind')}>Body & Mind</div>
             {activeDropdown === 'BodyAndMind' && toggleMenu && (
-              <div ref={dropdownRef} className='absolute z-10 w-full top-[62%] flex bg-gray-800'>
-                <Link href='/food-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Food</p></Link>
-                <Link href='/health-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300 w-full'><p onClick={toggleNav}>Health</p></Link>
+              <div ref={dropdownRef} className='absolute text-sm z-10 w-full pt-2 pb-4 top-[54%] flex flex-col bg-gray-700'>
+                <Link href='/food-news' className='py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Food</p></Link>
+                <Link href='/health-news' className='py-2 px-3 transition-all bg-gray-700 duration-300 w-full'><p onClick={toggleNav}>Health</p></Link>
               </div>
             )}
 
             {/* Special Interests Dropdown */}
-            <div className='text-sm tracking-widest py-2 px-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer' onClick={() => openDropdown('SpecialInterests')}>Special Interests</div>
+            <div className={`text-md tracking-widest py-2 px-3 transition-all duration-300 cursor-pointer ${activeDropdown === 'SpecialInterests' ? 'bg-gray-700' : ''}`} onClick={() => openDropdown('SpecialInterests')}>Special Interests</div>
             {activeDropdown === 'SpecialInterests' && toggleMenu && (
-              <div ref={dropdownRef} className='absolute z-10 w-full top-[73%] flex bg-gray-800'>
-                <Link href='/sports-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Sports</p></Link>
-                <Link href='/travel-news' className='text-xs py-2 px-3 transition-all bg-gray-700 duration-300 w-full'><p onClick={toggleNav}>Travel</p></Link>
+              <div ref={dropdownRef} className='absolute text-sm z-10 w-full pt-2 pb-4 top-[62%] flex flex-col bg-gray-700'>
+                <Link href='/sports-news' className='py-2 px-3 transition-all bg-gray-700 duration-300'><p onClick={toggleNav}>Sports</p></Link>
+                <Link href='/travel-news' className='py-2 px-3 transition-all bg-gray-700 duration-300 w-full'><p onClick={toggleNav}>Travel</p></Link>
               </div>
             )}
             <div onClick={handleSearchIconClick} className='flex justify-center space-x-2 py-2 px-4 w-[94%] mt-6 mx-3 transition-all hover:bg-gray-700 duration-300 cursor-pointer rounded-lg bg-blue-400/5'>
