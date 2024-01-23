@@ -67,18 +67,27 @@ const MobileNav = () => {
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
+    setToggleMenu(!toggleMenu)
   }
 
   return (
     <main>
-      <div onClick={toggleNav} className='md:hidden flex flex-col items-center pt-2 space-y-1'>
-        <div className='w-[5%] h-[0.25rem] bg-neutral-800 rounded-full'></div>
-        <div className='w-[10%] h-[0.25rem] bg-neutral-800 rounded-full'></div>
-        <div className='w-[5%] h-[0.25rem] bg-neutral-800 rounded-full'></div>
+      <div onClick={toggleNav} className='md:hidden bg-gray-800 flex flex-col items-center py-4 space-y-1'>
+        <div className='w-[5%] h-[0.12rem] bg-gray-200 rounded-full'></div>
+        <div className='w-[10%] h-[0.15rem] bg-gray-200 rounded-full'></div>
+        <div className='w-[5%] h-[0.12rem] bg-gray-200 rounded-full'></div>
+      </div>
+      <div onClick={toggleNav} className='hidden xl:hidden bg-gray-800 text-gray-100 text-sm md:px-6 lg:px-10 md:flex justify-between items-center py-4'>
+        <h1 className='hover:underline'>Common News</h1>
+        <h1 className='hover:underline'>Strategic News</h1>
+        <h1 className='hover:underline'>Other News</h1>
+        <h1 className='hover:underline'>Arts & Entertainment</h1>
+        <h1 className='hover:underline'>Body & Mind</h1>
+        <h1 className='hover:underline'>Special Interests</h1>
       </div>
       {isNavOpen && (
         <div className='fixed z-20 top-0 left-0 w-full h-full'>
-          <h1 onClick={toggleNav} className='fixed top-4 right-4 z-30 text-2xl text-gray-200'>X</h1>
+          <h1 onClick={toggleNav} className='fixed top-4 right-4 md:right-8 z-30 text-2xl text-gray-200'>X</h1>
           <nav className='relative flex flex-col w-full h-full justify-between py-2 lg:px-8 xl:px-20 2xl:px-44 text-lg text-white bg-gray-800'>
             <Link href='/' onClick={toggleNav} className='py-2 px-3 transition-all text-2xl tracking-wider text-red-400 hover:bg-gray-700 duration-300'>NLN</Link>
 
