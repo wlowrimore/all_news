@@ -49,8 +49,8 @@ const MainSearch = ({ handleSearchIconClick, isOpen }) => {
         <h2 className='text-xl -mt-2 text-neutral-800'>News Link Now</h2>
       </div>
       <section className='flex justify-center'>
-        <div onClick={handleSearchIconClick} className='hidden md:fixed top-6 right-10 text-lg md:text-2xl text-white bg-red-600/60 cursor-pointer hover:bg-neutral-500 transition-all duration-300 py-2 px-4 rounded-full'>X</div>
-        <div onClick={handleSearchIconClick} className='md:hidden z-999 absolute top-4 right-4 text-lg md:text-2xl text-white bg-red-600/60 cursor-pointer hover:bg-neutral-500 transition-all duration-300 py-2 px-4 rounded-full'>X</div>
+        <div onClick={handleSearchIconClick} className='hidden lg:fixed top-6 right-10 text-lg md:text-2xl text-white bg-red-600/60 cursor-pointer hover:bg-neutral-500 transition-all duration-300 py-2 px-4 rounded-full'>X</div>
+        <div onClick={handleSearchIconClick} className='lg:hidden z-999 absolute top-4 right-4 text-lg md:text-2xl text-white bg-red-600/60 cursor-pointer hover:bg-neutral-500 transition-all duration-300 py-2 px-4 rounded-full'>X</div>
         <form onSubmit={handleFormSubmit}>
           <div className='flex flex-col md:flex-row gap-4'>
             <input
@@ -114,7 +114,7 @@ const MainSearch = ({ handleSearchIconClick, isOpen }) => {
               articles.response.docs.map((article, index) => (
                 <Fade key={index} direction='up' cascade triggerOnce>
                   <div key={index} className='text-neutral-800'>
-                    <div className='md:w-full flex flex-col md:flex-row items-start justify-start gap-10'>
+                    <div className='md:w-full flex flex-col lg:flex-row items-start justify-start gap-10'>
                       {article.multimedia[0]?.url && (
                         <Image
                           src={`${shortenedUrl}${article.multimedia[0].url}`}

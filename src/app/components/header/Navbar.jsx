@@ -144,7 +144,7 @@ const Navbar = () => {
           {/* <p className='hidden md:text-sm'>Search</p> */}
         </div>
         <div className='py-2 px-4 rounded-lg md:text-start lg:text-end'>
-          <p className='md:text-xs lg:text-sm text-neutral-100 tracking-widest'><Clock format='h:mm:ss a' ticking={true} timezone={'US/Central'} noSsr={true} /></p>
+          <p className='md:text-xs lg:text-sm text-neutral-100 tracking-widest'><Clock format='h:mm:ss a' ticking={true} timezone={'US/Central'} noSsr={true} />&nbsp;CST</p>
           <p className='text-xs text-neutral-100 tracking-widest'>{date}</p>
         </div>
         {isOpen && (

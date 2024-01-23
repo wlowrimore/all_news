@@ -87,7 +87,7 @@ const MobileNav = () => {
       </div>
       {isNavOpen && (
         <div className='fixed z-20 top-0 left-0 w-full h-full'>
-          <h1 onClick={toggleNav} className='fixed top-4 right-4 md:right-8 z-30 text-2xl text-gray-200'>X</h1>
+          <h1 onClick={toggleNav} className='fixed top-4 right-6 md:right-8 z-30 text-2xl text-gray-200'>X</h1>
           <nav className='relative flex flex-col w-full h-full justify-between py-2 lg:px-8 xl:px-20 2xl:px-44 text-lg text-white bg-gray-800'>
             <Link href='/' onClick={toggleNav} className='py-2 px-3 transition-all text-2xl tracking-wider text-red-400 hover:bg-gray-700 duration-300'>NLN</Link>
 
@@ -166,7 +166,7 @@ const MobileNav = () => {
               <p className='flex text-lg'>Search for articles</p>
             </div>
             <div className='pt-6 pb-12 text-center'>
-              <p className='text-3xl text-neutral-100 tracking-widest'><Clock format='h:mm:ss a' ticking={true} timezone={'US/Central'} noSsr={true} /></p>
+              <p className='text-3xl text-neutral-100 tracking-widest'><Clock format='h:mm:ss a' ticking={true} timezone={'US/Central'} noSsr={true} />&nbsp;CST</p>
               <p className='text-lg text-neutral-100 tracking-widest'>{date}</p>
             </div>
             {isOpen && (

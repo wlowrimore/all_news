@@ -15,7 +15,7 @@ export const metadata = {
 export default async function Home() {
   await wait(2500)
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between pt-16 md:p-6 lg:p-8 xl:p-10 2xl:p-24 xl:mx-12 2xl:mx-[16rem]'>
+    <main className='flex min-h-screen flex-col items-center justify-between pt-14 md:p-6 lg:p-8 xl:p-10 2xl:p-24 xl:mx-12 2xl:mx-[16rem]'>
       <div className='w-full flex'>
         <div className={`${noticia.className} flex flex-col w-full text-start px-4`}>
           <h1 className='text-3xl md:text-4xl 2xl:text-5xl'>News Link Now</h1>
